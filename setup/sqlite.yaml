@@ -1,0 +1,4 @@
+database:
+  type: sqlite
+  name: jarvis.db
+  location: /home/apollo/Desktop/J/data/

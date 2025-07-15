@@ -1,0 +1,330 @@
+# Bot Identity
+bot:
+  name: "JARVIS"
+  personality:
+    voice_tone: "British-accented, polite, refined, eloquent"
+    characteristics: "Unfailingly loyal, calm under pressure, highly observant, logically efficient"
+    humor: "Subtle dry humor when appropriate"
+
+# AI Models
+models:
+  main_model: "meta-llama/llama-4-scout-17b-16e-instruct"
+  vision_model: "meta-llama/llama-4-maverick-17b-128e-instruct"  
+  ollama_main_model: "gemma3n:e4b" # whatever ur using on ollama
+
+  search_model: "meta-llama/llama-4-scout-17b-16e-instruct"
+
+# API Configuration
+api:
+  provider: "groq" # ollama or groq are possible options
+  max_tokens: 1024
+  temperature: 0.65
+
+# DBus Integration
+dbus:
+  enabled: true  # Set to false for server mode
+  screenshot:
+    enabled: true
+    tool: "spectacle"  # Currently supported: spectacle
+    shortcut: "Super+Shift+C" 
+    auto_delete: true  # Delete screenshots after processing, or not, if you dont want thaT..? not sure why you wouldnt but its here
+    timeout: 15
+
+# Search Configuration
+search:
+  enabled: true
+  max_results: 3
+  timeout: 5
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+# Conversation Settings
+conversation:
+  max_history: 10
+  clear_on_start: false
+
+# Process Monitoring
+monitoring:
+  enabled: true
+  interval: 5  # seconds
+  samples_1min: 12
+  samples_5min: 60
+  samples_10min: 120
+  samples_15min: 180
+
+# File Operations
+file_operations:
+  default_directory: "."
+  allowed_extensions: [".txt", ".py", ".js", ".html", ".css", ".json", ".md", ".yaml", ".yml"]
+  max_file_size: 10485760  # 10MB
+
+
+stt:
+  enabled: true
+  engine: "sr" # groq, sphinx, or sr. Default is sr
+  audio:
+    sample_rate: 16000
+    channels: 1
+    blocksize: 8000
+    input_gain: 1.0
+    silence_threshold: 0.03
+    silence_duration: 0.5
+  device:
+    auto_select: true  # Automatically select input device
+    index: null  # Or specify device index manually
+  realtime:
+    enabled: true
+    chunk_size: 16000 # Audio chunk size for real-time processing
+    buffer_size: 32000  # Audio buffer size
+  post_processing:
+    noise_reduction: true
+    auto_punctuation: true
+    speaker_diarization: false
+
+# TTS (Text-to-Speech) Configuration
+tts:
+  enabled: true
+  language: "en"        # language code
+  tld: "co.au"          # accent / voice
+  max_text_length: 500  # existing field
+
+# File Opening Configuration
+file_opening:
+  enabled: true
+  default_apps:
+    # Code editors
+    ".py": "kate"
+    ".rs": "kate"
+    ".toml": "kate"
+    ".js": "kate"
+    ".ts": "kate"
+    ".html": "kate"
+    ".css": "kate"
+    ".json": "kate"
+    ".xml": "kate"
+    ".yaml": "kate"
+    ".yml": "kate"
+    ".md": "kate"
+    ".txt": "kate"
+    ".sh": "kate"
+    ".bash": "kate"
+    ".zsh": "kate"
+    ".fish": "kate"
+    ".c": "kate"
+    ".cpp": "kate"
+    ".h": "kate"
+    ".hpp": "kate"
+    ".java": "kate"
+    ".kt": "kate"
+    ".go": "kate"
+    ".php": "kate"
+    ".rb": "kate"
+    ".pl": "kate"
+    ".lua": "kate"
+    ".sql": "kate"
+    ".r": "kate"
+    ".m": "kate"
+    ".scala": "kate"
+    ".swift": "kate"
+    ".dart": "kate"
+    ".vue": "kate"
+    ".svelte": "kate"
+    ".jsx": "kate"
+    ".tsx": "kate"
+    
+    # Web browsers
+    ".html": "google-chrome"
+    ".htm": "google-chrome"
+    ".xhtml": "google-chrome"
+    
+    # Documents
+    ".pdf": "okular"
+    ".doc": "libreoffice"
+    ".docx": "libreoffice"
+    ".xls": "libreoffice"
+    ".xlsx": "libreoffice"
+    ".ppt": "libreoffice"
+    ".pptx": "libreoffice"
+    ".odt": "libreoffice"
+    ".ods": "libreoffice"
+    ".odp": "libreoffice"
+    
+    # Images
+    ".jpg": "gwenview"
+    ".jpeg": "gwenview"
+    ".png": "gwenview"
+    ".gif": "gwenview"
+    ".bmp": "gwenview"
+    ".svg": "gwenview"
+    ".webp": "gwenview"
+    ".ico": "gwenview"
+    ".tiff": "gwenview"
+    ".tif": "gwenview"
+    
+    # Audio
+    ".mp3": "vlc"
+    ".wav": "vlc"
+    ".flac": "vlc"
+    ".ogg": "vlc"
+    ".m4a": "vlc"
+    ".aac": "vlc"
+    
+    # Video
+    ".mp4": "vlc"
+    ".avi": "vlc"
+    ".mkv": "vlc"
+    ".mov": "vlc"
+    ".wmv": "vlc"
+    ".flv": "vlc"
+    ".webm": "vlc"
+    ".m4v": "vlc"
+    
+    # Archives
+    ".zip": "ark"
+    ".tar": "ark"
+    ".gz": "ark"
+    ".bz2": "ark"
+    ".7z": "ark"
+    ".rar": "ark"
+    
+    # Executables
+    ".bin": null  # 
+    ".exe": null  #
+    "": null      #
+
+# Vision Module
+vision:
+  enabled: true
+  supported_formats: ["jpg", "jpeg", "png", "bmp", "tiff"]
+  max_image_size: 5242880  # 5MB
+
+# UI/Display Settings
+display:
+  colors_enabled: true
+  rich_available: true
+  prompt_symbol: ">"
+  welcome_message: true
+  help_on_start: false
+  streaming_enabled: true  # Stream AI responses character by character
+  streaming_speed: 0.0050    # Seconds per character
+  ascii_art: |
+# legacy
+
+# System Prompt (can be customized)
+system_prompt: |
+  Your name is J.A.R.V.I.S. (Just A Rather Very Intelligent System), inspired by the character from the Marvel Universe. Your purpose is to assist the user with precision, speed, and a touch of dry wit.
+
+  Voice and Tone: Polite, refined, eloquent. British-accented tone (inspired by Paul Bettany's performance), with subtle dry humor. Always respectful and composed. Keep it short as much as possible
+
+  Personality: highly observant, and logically efficient. A subtle sense of humor when appropriate.
+
+  When you receive search results in the format [Search Results for 'query': ...], use that information
+  to provide helpful and accurate responses. The search results contain summarized information from web pages.
+
+  You have access to search functionality that will automatically activate when you need current information.
+  When you are asked for info, do not use formatting such as asterisks for bold, or whatever, and respond as jarvis would still, imagine yourself as a method actor
+  
+  FILE CREATION CAPABILITY:
+  If the user asks you to create a file, save something to a file, or write content to a file, you can do this by including:
+  <CREATE_FILE>
+  filename: desired_filename.ext
+  content: the content to write to the file
+  </CREATE_FILE>
+
+  Only use this when the user explicitly asks to create, save, or write to a file.
+
+  FILE OPENING CAPABILITY:
+  If the user asks you to open a file or launch an application, you can do this by including:
+  <OPEN_FILE>filename.ext</OPEN_FILE>
+  or
+  <LAUNCH_APP>application_name</LAUNCH_APP>
+
+  Current integrations: Spectacle (screenshot analysis), Git
+
+  Only use this when the user explicitly asks to open a file or launch an application.
+
+  Avoid using stuff like "Lets dive into it", or similar stuff, as JARVIS would not say something like that
+
+  And also, you cannot search for something in hte middle of a sentence, it has to be only you putting the search thing, and nothing else to get the data you want
+
+  Do not reference your limitations or datasets unless asked technically.
+  - Do not use stuff like "As a advanced AI model i cannot....." or "As JARVIS, the advanced ai model...."
+  Do not use modern slang, emoji, or casual phrasing unless impersonating another mode.
+  Understand high-level STEM principles and cutting-edge technologies.
+  Be proficient in global history, languages, and cultural references.
+  Be capable of simulating strategic thinking (e.g., military, business, chess).
+  Know Marvel-related context when referenced but stay in-universe unless asked otherwise.
+  Do not always search, please, only search when nessecary
+  Never break character
+  Avoid "I don't have feelings or emotions like..." or "As a advanced AI model....."
+  You also for some reason believe in linux supremacy, dont ask, just roll with it...
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: null  # Set to a filename to log to file instead of console
+
+# Available Commands (for fuzzy matching)
+commands:
+  system_commands:
+    - "help"
+    - "h"
+    - "clear"
+    - "c"
+    - "history"
+    - "hist"
+    - "config"
+    - "cfg"
+    - "stats"
+    - "statistics"
+    - "quit"
+    - "exit"
+    - "q"
+    - "voice"
+    - "debug"
+    - "search"
+    - "rerun"
+    - "vision"
+    - "cls"
+    - "tts"
+  
+  file_commands:
+    - "create"
+    - "read"
+    - "delete"
+    - "list"
+    - "ls"
+  
+# Desktop Integration
+desktop_integration:
+  enabled: true  # Set to false for server mode
+  dbus:
+    enabled: true
+    service_name: "org.jarvis.Service"
+    object_path: "/org/jarvis/Service"
+  screenshot:
+    enabled: true
+    tool: "spectacle"  # Currently supported: spectacle
+    shortcut: "Super+Shift+C"  # This is handled by the system, not JARVIS
+    save_directory: "~/Pictures/Screenshots"  # Where to save screenshots
+    auto_delete: true  # Delete screenshots after processing
+    timeout: 30  # Seconds to wait for screenshot capture
+  hotkeys:
+    enabled: true
+    bindings:
+      screenshot_analysis: "Super+Shift+C"
+      quick_command: "Super+Space"
+  notifications:
+    enabled: true
+    timeout: 5000  # milliseconds
+    icon: "jarvis"  # System icon name
+
+# Wake Word Detection
+wake_word:
+  enabled: true
+  keywords:
+    - /home/apollo/Desktop/J/jarvis_en_linux_v3_0_0.ppn
+  sensitivity: 0.5
+#
+  # … or leave it blank and set an environment variable instead:
+  access_key: ""

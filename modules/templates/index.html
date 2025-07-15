@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bot_name }} Web Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-500">{{ bot_name }}</h1>
+            <p class="text-gray-400">Just A Rather Very Intelligent System</p>
+        </header>
+
+        <!-- Main content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Chat section -->
+            <div class="lg:col-span-2 bg-gray-800 rounded-lg p-4">
+                <div id="chat-container" class="h-96 overflow-y-auto mb-4 space-y-4">
+                    <!-- Chat messages will be inserted here -->
+                </div>
+                <div class="flex space-x-2">
+                    <input type="text" id="query-input" 
+                           class="flex-1 bg-gray-700 text-white rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="Type your message...">
+                    <button id="send-btn" 
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded transition-colors">
+                        Send
+                    </button>
+                </div>
+            </div>
+
+            <!-- Debug/Stats section -->
+            <div class="bg-gray-800 rounded-lg p-4">
+                <h2 class="text-xl font-semibold mb-4 text-blue-400">System Stats</h2>
+                <div id="stats-container" class="space-y-4">
+                    <div class="stat-item">
+                        <label class="text-gray-400">CPU Usage</label>
+                        <div class="flex items-center">
+                            <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                <div id="cpu-bar" class="bg-blue-500 rounded-full h-2" style="width: 0%"></div>
+                            </div>
+                            <span id="cpu-text" class="ml-2 text-sm">0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <label class="text-gray-400">Memory Usage</label>
+                        <div class="flex items-center">
+                            <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                <div id="memory-bar" class="bg-green-500 rounded-full h-2" style="width: 0%"></div>
+                            </div>
+                            <span id="memory-text" class="ml-2 text-sm">0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <label class="text-gray-400">Threads</label>
+                        <p id="threads-text" class="text-lg">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <label class="text-gray-400">Connections</label>
+                        <p id="connections-text" class="text-lg">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <label class="text-gray-400">Status</label>
+                        <p id="status-text" class="text-lg text-green-500">Unknown</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 

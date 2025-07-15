@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=JARVIS Screenshot Analysis
+Comment=Analyze screenshots using JARVIS AI
+Exec=python3 /home/apollo/Documents/Development/J/test_screenshot.py
+Icon=spectacle
+Type=Application
+Categories=Utility;
+X-KDE-GlobalAccel-CommandShortcut=Meta+Shift+C
+X-KDE-GlobalAccel-Component=jarvis
+X-KDE-GlobalAccel-Friendly=JARVIS Screenshot Analysis
+X-KDE-GlobalAccel-Shortcut=Screenshot Analysis 

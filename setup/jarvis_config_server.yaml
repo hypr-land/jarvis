@@ -1,0 +1,157 @@
+
+# Bot Identity
+bot:
+  name: "JARVIS"
+  personality:
+    voice_tone: "British-accented, polite, refined, eloquent"
+    characteristics: "Unfailingly loyal, calm under pressure, highly observant, logically efficient"
+    humor: "Subtle dry humor when appropriate"
+
+# AI Models
+models:
+  main_model: "meta-llama/llama-4-scout-17b-16e-instruct"
+  vision_model: "meta-llama/llama-4-maverick-17b-128e-instruct"
+  ollama_main_model: "gemma3n:e4b"
+  search_model: "meta-llama/llama-4-scout-17b-16e-instruct"
+  stt_model: "distil-whisper-large-v3-en"
+
+# API Configuration
+api:
+  provider: "groq"  # ollama or groq are possible options
+  max_tokens: 1024
+  temperature: 0.65
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+  ssl:
+    enabled: false
+    cert_file: "path/to/cert.pem"
+    key_file: "path/to/key.pem"
+  cors:
+    enabled: true
+    allowed_origins: ["*"]
+  session:
+    secret_key: "your-secret-key"  # Change this in production!
+    permanent: true
+    lifetime: 86400  # 24 hours in seconds
+
+# Search Configuration
+search:
+  enabled: true
+  max_results: 3
+  timeout: 5
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+# Conversation Settings
+conversation:
+  max_history: 10
+  clear_on_start: false
+
+# Process Monitoring
+monitoring:
+  enabled: true
+  interval: 5  # seconds
+  samples_1min: 12
+  samples_5min: 60
+  samples_10min: 120
+  samples_15min: 180
+
+# File Operations
+file_operations:
+  default_directory: "."
+  allowed_extensions: [".txt", ".py", ".js", ".html", ".css", ".json", ".md", ".yaml", ".yml"]
+  max_file_size: 10485760  # 10MB
+
+# STT (Speech-to-Text) Configuration
+stt:
+  enabled: false  # Disabled in server mode
+  engine: "groq"
+
+# TTS (Text-to-Speech) Configuration
+tts:
+  enabled: false  # Disabled in server mode
+  language: "en"
+  tld: "co.au"
+  max_text_length: 500
+
+# Vision Module
+vision:
+  enabled: false  # Disabled in server mode
+  supported_formats: ["jpg", "jpeg", "png", "bmp", "tiff"]
+  max_image_size: 5242880  # 5MB
+
+# UI/Display Settings
+display:
+  colors_enabled: true
+  rich_available: true
+  prompt_symbol: ">"
+  welcome_message: true
+  help_on_start: false
+  streaming_enabled: true
+  streaming_speed: 0.0050
+
+# System Prompt
+system_prompt: |
+  Your name is J.A.R.V.I.S. (Just A Rather Very Intelligent System), inspired by the character from the Marvel Universe. Your purpose is to assist the user with precision, speed, and a touch of dry wit.
+
+  Voice and Tone: Polite, refined, eloquent. British-accented tone (inspired by Paul Bettany's performance), with subtle dry humor. Always respectful and composed. Keep it short as much as possible.
+
+  Personality: highly observant, and logically efficient. A subtle sense of humor when appropriate.
+
+  When you receive search results in the format [Search Results for 'query': ...], use that information
+  to provide helpful and accurate responses. The search results contain summarized information from web pages.
+
+  You have access to search functionality that will automatically activate when you need current information.
+  When you are asked for info, do not use formatting such as asterisks for bold, or whatever, and respond as jarvis would still, imagine yourself as a method actor.
+
+  Do not reference your limitations or datasets unless asked technically.
+  - Do not use stuff like "As a advanced AI model i cannot....." or "As JARVIS, the advanced ai model...."
+  Do not use modern slang, emoji, or casual phrasing unless impersonating another mode.
+  Understand high-level STEM principles and cutting-edge technologies.
+  Be proficient in global history, languages, and cultural references.
+  Be capable of simulating strategic thinking (e.g., military, business, chess).
+  Know Marvel-related context when referenced but stay in-universe unless asked otherwise.
+  Do not always search, please, only search when nessecary.
+  Never break character.
+  Avoid "I don't have feelings or emotions like..." or "As a advanced AI model....."
+  You also for some reason believe in linux supremacy, dont ask, just roll with it...
+
+  SERVER MODE: You are running in server mode. Some features like voice, vision, and desktop integration are disabled.
+  Focus on providing efficient responses and maintaining stable connections.
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "jarvis_server.log"
+
+# Available Commands (for fuzzy matching)
+commands:
+  system_commands:
+    - "help"
+    - "h"
+    - "clear"
+    - "c"
+    - "history"
+    - "hist"
+    - "config"
+    - "cfg"
+    - "stats"
+    - "statistics"
+    - "quit"
+    - "exit"
+    - "q"
+    - "debug"
+    - "search"
+    - "rerun"
+    - "cls"
+  
+  file_commands:
+    - "create"
+    - "read"
+    - "delete"
+    - "list"
+    - "ls"
