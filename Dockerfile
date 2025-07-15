@@ -42,8 +42,5 @@ ENV HOST=0.0.0.0 \
     GROQ_API_KEY="" \
     PICOVOICE_ACCESS_KEY=""
 
-# Expose the port
-EXPOSE 5000
-
 # Run the application
-CMD ["python", "jarvis.py", "--server", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["python", "jarvis.py"]
