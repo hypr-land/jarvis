@@ -39,8 +39,8 @@
 
 <h2>to install:</h2>
 <ul>
-  <li> run the dockerfile i guess</li>
-  <li><code>python jarvis.py</code></li>
+  <li> run the dockerfile i guess, will run it automatically</li>
+  <li><code>python jarvis.py afterwards</code></li>
   <li>id also reccomend doing <code>python jarvis.py --test</code> before running it (whether all the things work), but you do you</li>
 </ul>
 
