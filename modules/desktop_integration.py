@@ -287,8 +287,6 @@ class DesktopIntegration:
             self.logger.info("Starting DBus main loop")
             # Add a timeout to periodically check for shutdown
             GLib.timeout_add_seconds(1, self._check_shutdown)
-            
-        try:
             self.loop.run()
         except Exception as e:
             self.logger.error(f"Error in DBus main loop: {e}", exc_info=True)
@@ -296,7 +294,6 @@ class DesktopIntegration:
             self.logger.info("DBus main loop stopped")
             self.running = False
             self._shutdown_event.set()
-
             
             # Clean up the loop
             if hasattr(self, 'loop') and self.loop:
@@ -320,8 +317,6 @@ class DesktopIntegration:
                     self.logger.warning(f"Error closing DBus connection: {e}")
                 finally:
                     self.bus = None
-            
-            self.logger.info("Desktop integration stopped")
 
 
 # Quick test script
@@ -342,9 +337,16 @@ def test_dbus_service():
         
         # Create bus name
         bus_name = dbus.service.BusName('org.jarvis.Service', bus)
+
+        class MockJarvisBot:
+            def __init__(self):
+                self.vision_module = None
+                self.colors = type('Colors', (), {
+                    'print_success': lambda _, x: print(f"SUCCESS: {x}")
+                })()
         
-        # Create service object (without vision module for testing)
-        service = JarvisDBusService(bus_name, None)
+        # Create service object with mock objects
+        service = JarvisDBusService(bus_name, None, MockJarvisBot())
         
         logger.info("DBus service created successfully")
         logger.info("Testing service methods...")
