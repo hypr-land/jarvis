@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=vCD4DlF2p1c&ab_channel=demo for demo
 <ul>
   <li> run the dockerfile i guess, will run it automatically</li>
   <code>sudo docker build -t dockerfile</code>
-  <li><code>python jarvis.py afterwards</code></li>
+  <li><code>python jarvis.py</code> afterwards </li>
   <li>id also reccomend doing <code>python jarvis.py --test</code> before running it (whether all the things work), but you do you</li>
 </ul>
 
