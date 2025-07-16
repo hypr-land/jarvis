@@ -42,5 +42,5 @@ ENV HOST=0.0.0.0 \
     GROQ_API_KEY="" \
     PICOVOICE_ACCESS_KEY=""
 
-# Run the application
-CMD ["python", "jarvis.py"]
+# Test
+CMD ["python", "jarvis.py", "--test"]
