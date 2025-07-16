@@ -33,6 +33,7 @@ https://www.youtube.com/watch?v=vCD4DlF2p1c&ab_channel=demo for demo
 <p>if you want just the jarvis stuff, just do <code>tts enable ; voice ;</code></p>
 
 <p>Screenshot integration only works on KDE and with spectacle, it should work on any other distro though aside from some kde specific stuff</p>
+Only been tested on KDE and a headless setup on raspberry pi os
 <ul>
   <li>Windows support is basically impossible, it might work on WSL, but again not tested, STT might not work well</li>
  <li>set desktop_integration_enabled: false and dbus_enabled: false in jarvis_config.yaml for the best chance of it working</li>
