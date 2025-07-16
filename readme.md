@@ -41,6 +41,7 @@ https://www.youtube.com/watch?v=vCD4DlF2p1c&ab_channel=demo for demo
 <h2>to install:</h2>
 <ul>
   <li> run the dockerfile i guess, will run it automatically</li>
+  <code>sudo docker build -t dockerfile</code>
   <li><code>python jarvis.py afterwards</code></li>
   <li>id also reccomend doing <code>python jarvis.py --test</code> before running it (whether all the things work), but you do you</li>
 </ul>
