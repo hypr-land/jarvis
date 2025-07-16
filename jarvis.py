@@ -424,7 +424,7 @@ class JarvisBot:
         if not server_mode and config.desktop_integration_enabled:
             try:
                 from modules.desktop_integration import DesktopIntegration
-                self.desktop_integration = DesktopIntegration(config, self.vision_module)
+                self.desktop_integration = DesktopIntegration(config, self.vision_module, self)
                 self.desktop_integration.start()
                 logger.info("Desktop integration started successfully")
             except ImportError as e:
