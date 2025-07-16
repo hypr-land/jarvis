@@ -2,7 +2,7 @@
 
 <p>Jarvis, but it does stuff, can be local, or uses groq API, check jarvis_config.yaml</p>
 https://www.youtube.com/watch?v=vCD4DlF2p1c&ab_channel=demo for demo
-<p><code>.hyprland.</code> is my discord, if you need anything<p>
+<p><code>.hyprland.</code> is my discord, im willing to help with anything related to this, or listen to feedback <p>
 <p>also note that jarvis isnt really meant to be a chatbot, but he probably would work as one</p>
 <p>mainly because of rate limits, but if your on ollama it shouldnt be a issue</p>
 
